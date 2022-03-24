@@ -1,20 +1,25 @@
 package com.company;
 
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
 
-    private int HP;
+    private int HP = 100;
     private String name;
-    private int maxHP;
-    private int xp;
-    private int atk;
-    private int def;
-    private int lvl;
-    private int numPotions;
+    private final ArrayList<Item> backpackPlayer = new ArrayList<>();
+    private Room currentRoom;
 
-    public static void  createPlayer(){
+
+    public void setHp(int HP) {
+        this.HP = HP;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public static void createPlayer() {
         Scanner playerName = new Scanner(System.in);
         System.out.println("Enter your player name if you wish tom play!");
 
@@ -24,18 +29,21 @@ public class Player {
 
     }
 
-    public Player(){
-        HP = maxHP;
-        lvl = 1;
+    public ArrayList<Item> getBackpackInventory() {
+        return backpackPlayer;
+    }
 
+    public boolean checkEmptyBackpack() {
+        boolean result = backpackPlayer.isEmpty();
+        return result;
     }
 
 
-    public int getHp(){
-        return HP;
+    public Room getCurrentRoom() {
+        return currentRoom;
     }
 
-    public void setHP(int hp){
-        HP = hp;
+    public void setCurrentRoom(Room currentRoom) {
     }
 }
+
