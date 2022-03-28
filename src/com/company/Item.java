@@ -10,7 +10,7 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public String getItem() {
+    public String getItemName() {
         return name;
     }
 

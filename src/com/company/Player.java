@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Player {
 
     private int HP = 100;
-    private String name;
+    private String playerName;
     private final ArrayList<Item> backpackPlayer = new ArrayList<>();
     private Room currentRoom;
-
 
     public void setHp(int HP) {
         this.HP = HP;
@@ -19,12 +18,16 @@ public class Player {
         return HP;
     }
 
-    public static void createPlayer() {
-        Scanner playerName = new Scanner(System.in);
-        System.out.println("Enter your player name if you wish tom play!");
+    public void setPlayerName(String playerName){
+        this.playerName = playerName;
+    }
 
-        String name = playerName.nextLine();
+    public void createPlayer() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your player name if you wish to play!");
+        String playerName = scanner.nextLine();
         System.out.println("Your chosen player name is: " + playerName);
+
 
 
     }

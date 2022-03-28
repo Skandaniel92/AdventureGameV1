@@ -1,17 +1,18 @@
 package com.company;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class TUI {
 
     private static Player player;
-    private Map map;
+    private static Map map;
     private boolean isAlive;
 
     public static void printMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the game ___ if you wish to start, please create a player");
+        String playerName = scanner.nextLine();
+        System.out.println("Welcome to the Adventure game! \nIf you wish to start, please create a player");
+        player.setPlayerName(playerName);
         System.out.println("If you wish to exit the game... sad. \n" + "Type exit");
         String userInput = scanner.nextLine();
         if (userInput.equals("exit")) {
@@ -20,7 +21,7 @@ public class TUI {
 
     }
 
-    public void useCommands() {
+    public static void useCommands() {
         System.out.println("COMMANDS:");
         System.out.println("\"Look\" ");
         System.out.println("\"Take\" take any item avaliable");
@@ -38,7 +39,10 @@ public class TUI {
         map = new Map();
         player = new Player();
         map.createRooms();
+        printMenu();
+        useCommands();
         player.setCurrentRoom(map.getCurrentRoom());
+    }
 
 
         public static void exit () {
@@ -69,7 +73,8 @@ public class TUI {
                 //sout?
             }
         }
+
     }
-}
+
 
 
